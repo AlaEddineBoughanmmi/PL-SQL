@@ -1,0 +1,21 @@
+declare
+ nbre_articles number(3);
+ CURSOR cur_articles is select * from articles for update of stock_min,stock_max;
+ var_articles cur_articles%rowtype;
+
+ begin
+  for var_articles in cur_articles loop
+  select count(*) into nbre_articles from lignes_commandes L inner join articles a on a.reference_art=L.reference_art and var_articles.reference_art= a.reference_art;
+if nbre_articles<2 then
+  update articles set stock_max=stock_max-(stock_max*0.2) where current of cur_articles;
+  end if;
+  if nbre_articles<2 then
+  update articles set stock_max=stock_max-(stock_max*0.2) where current of cur_articles;
+  end if;
+  if nbre_articles>=2 and nbre_articles <=5 then
+  update articles set stock_max=stock_max*2 ,stock_min = stock_min*2 where current of cur_articles;
+  end if;
+    if nbre_articles>5 then
+  update articles set stock_max=stock_max*3 ,stock_min = stock_min*3 where current of cur_articles;
+  end if;
+  end loop;

@@ -1,0 +1,103 @@
+﻿Déclaration d'un curseur
+-- set serveroutput on;
+declare
+	cursor cur_clients
+	is select * from clients;
+begin
+	DBMS_OUTPUT.PUT_LINE ('déclaration d''un curseur');
+end;
+/
+
+Exemple curseur : valeur par défaut
+set serveroutput on;
+declare
+cursor cur_clients(var_ville clients.ville%type:='TOULOUSE',var_pays CLIENTS.PAYS%type:='France')
+is SELECT * FROM clients WHERE ville=var_ville
+and pays=var_pays;
+begin
+DBMS_OUTPUT.PUT_LINE('Declaration d'' un curseur');
+end;
+/
+
+
+Exemple curseur : fermeture et association par position
+select * from clients;
+
+set serveroutput on;
+declare
+cursor cur_clients(var_ville clients.ville%type:='TOULOUSE',var_pays CLIENTS.PAYS%type:='France')
+is SELECT * FROM clients WHERE ville=var_ville
+and pays=var_pays;
+begin
+open cur_clients('Toulouse','France');
+if cur_clients%isopen then 
+DBMS_OUTPUT.PUT_LINE('Curseur ouvert');
+else
+DBMS_OUTPUT.PUT_LINE('Curseur fermé');
+end if;
+close cur_clients;
+end;
+/
+
+
+curseur : association par position
+set serveroutput on;
+declare
+cursor cur_salaries is SELECT * FROM salaries;
+type tableau_salaries is table of cur_salaries%rowtype index by binary_integer;
+var_salaries tableau_salaries;
+begin
+open cur_salaries;
+fetch cur_salaries bulk collect into var_salaries;
+
+FOR x IN 1..cur_salaries%rowcount LOOP
+DBMS_OUTPUT.PUT_LINE(var_salaries(x).nom_sal|| ' ' || var_salaries(x).prenom_sal);
+END LOOP;
+
+DBMS_OUTPUT.PUT_LINE(cur_salaries%rowcount);
+
+
+close cur_salaries;
+end;
+/
+
+Exercice 28
+set serveroutput on;
+declare
+cursor cur_commandes(var_etat commandes.etat_cde%type:='TRAITEE') is SELECT * FROM commandes WHERE Etat_cde=var_etat ORDER BY DATE_CDE ASC;
+type tableau_commandes is table of cur_commandes%rowtype index by binary_integer;
+var_commandes tableau_commandes;
+begin
+open cur_commandes;
+fetch cur_commandes bulk collect into var_commandes;
+
+FOR x IN 1..cur_commandes%rowcount LOOP
+DBMS_OUTPUT.PUT_LINE(var_commandes(x).etat_cde|| ' ' || var_commandes(x).date_cde);
+END LOOP;
+
+DBMS_OUTPUT.PUT_LINE(cur_commandes%rowcount);
+
+
+close cur_commandes;
+end;
+/
+
+set serveroutput on;
+declare
+cursor cur_clients is SELECT c.NUMERO_CLI,c.NOM,count(l.numero_cde)compteur FROM clients c INNER JOIN COMMANDES l ON c.NUMERO_CLI=l.NUMERO_CLI GROUP BY c.NUMERO_CLI,c.NOM;
+type tableau_clients is table of cur_clients%rowtype index by binary_integer;
+var_clients tableau_clients;
+begin
+open cur_clients;
+fetch cur_clients bulk collect into var_clients;
+
+FOR x IN 1..cur_clients%rowcount LOOP
+DBMS_OUTPUT.PUT_LINE(var_clients(x).NUMERO_CLI|| ' ' || var_clients(x).NOM||' '||var_clients(x).compteur);
+END LOOP;
+
+DBMS_OUTPUT.PUT_LINE(cur_clients%rowcount);
+
+
+close cur_clients;
+end;
+/

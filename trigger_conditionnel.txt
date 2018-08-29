@@ -1,0 +1,36 @@
+
+--clause when
+create table audit_securite
+(datema date,
+utilisateur varchar2(50),
+ancien_salaire number,
+nouveau_salaire number,
+message varchar2(100));
+
+
+create or replace trigger traceAugmentation
+before update on salaries for each row
+when (new.salaire> old.salaire * 1.8)
+begin
+  insert into audit_securite values (sysdate, user, :old.salaire, :new.salaire, 'augmenatation abusive');
+  
+end 
+
+--prédicats
+create  table audit_instruction (dateinst date, utilisateur varchar2 (20),
+typeinst varchar2 (50));
+
+create  or replace trigger predicat
+before insert or update or delete on salaries
+begin
+  if inserting then 
+    insert into AUDIT_INSTRUCTION  values (sysdate, user, 'execution insert sur salaries');
+  end if; 
+  if updating then 
+    insert into AUDIT_INSTRUCTION  values (sysdate, user, 'execution update sur salaries');
+  end if; 
+  if deleting then 
+    insert into AUDIT_INSTRUCTION  values (sysdate, user, 'execution deletesur salaries');
+  end if;
+end predicat;
+

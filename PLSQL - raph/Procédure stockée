@@ -1,0 +1,77 @@
+Procédure stockée
+
+Par défaut la valeur est IN, et ne peut donc pas être modifiée
+IN			Constante		
+OUT			Variable		
+IN OUT		les deux		
+
+Type Number & Varchar pas besoin de spécifier la taille
+
+CREATE / REPLACE   PROCEDURE   => indique que ça sera une procédure STOCKEE
+Exemple Création de procédure stockée sans paramètres
+
+Create or Replace Procedure augmentation_salaire
+is
+begin
+update salaries set salaire = salaire * 1.2 where NUMERO_SAL = 2;
+DBMS_OUTPUT.PUT_LINE('Le salaire de l''employé 2 est augmenté');
+end augmentation_salaire;
+
+
+
+Appel d'une procédure stockée
+
+Begin
+	AUGMENTATION_SALAIRE;
+	--rollback;
+END;
+
+ACCEPT p_nom prompt 'Donnez le nom de l''employé : ';
+ACCEPT p_taux prompt 'Donnez le taux d''augmentation de son salaire : ';
+
+DECLARE
+
+r_Numero SALARIES.NUMERO_SAL%TYPE;
+r_Nom SALARIES.NOM_SAL%TYPE;
+r_Prenom SALARIES.PRENOM_SAL%TYPE;
+r_Fonction SALARIES.FONCTION%TYPE;
+r_Salaire SALARIES.SALAIRE%TYPE;
+r_Comission SALARIES.COMISSION%TYPE;
+
+BEGIN
+update salaries set salaire = salaire * &p_taux where NOM_SAL = '&p_nom' 
+returning NUMERO_SAL, NOM_SAL, PRENOM_SAL, FONCTION, SALAIRE, COMISSION into r_Numero, r_Nom, r_Prenom, r_Fonction, r_Salaire, r_Comission;
+
+IF SQL%FOUND THEN
+	DBMS_OUTPUT.PUT_LINE('Nom du salarié : ' || r_Nom);
+	DBMS_OUTPUT.PUT_LINE('Prenom du salarié : ' || r_Prenom);
+	DBMS_OUTPUT.PUT_LINE('Salaire : ' || r_Salaire);
+	DBMS_OUTPUT.PUT_LINE('Fonction : ' || r_Fonction);
+	DBMS_OUTPUT.PUT_LINE('Comission : ' || r_Comission);
+ELSE
+    DBMS_OUTPUT.PUT_LINE('Employé &p_nom non existant.');
+END IF;
+END;
+/
+
+
+-- set serveroutput on;
+create or replace function sommeSalaire
+return number
+
+is
+
+var_salaire salaries.salaire%type;
+begin
+	select sum(salaire) into var_salaire from salaries;
+	return var_salaire;
+end sommeSalaire;
+/
+
+appel de la fonction
+declare
+	var_masse number;
+begin
+	var_masse := sommeSalaire;
+end;
+/

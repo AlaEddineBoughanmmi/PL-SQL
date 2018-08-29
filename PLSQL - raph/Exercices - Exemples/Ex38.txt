@@ -1,0 +1,31 @@
+
+--set SERVEROUTPUT ON;
+
+
+
+declare
+type structure_comcli is record (nom_client clients.nom%type, nombre_com number);
+type tab_comcli is table of structure_comcli index by binary_integer;
+t_comcli tab_comcli;
+var_ligne number;
+
+--appel d'une fonction (non stockée) dans un bloc pl/sql
+function nbrComcli return tab_comcli
+is
+  t_comcli tab_comcli;
+begin
+ select cl.nom, count(*)  bulk collect into t_comcli from commandes C
+ inner join clients cl on c.numero_cli = cl.NUMERO_CLI  
+ group by cl.nom;
+ return t_comcli;
+ end;
+ 
+ begin
+  t_comcli := nbrComcli;
+  var_ligne := t_comcli.count;   --retourne le nbre de lignes du tableau
+ for i in 1..var_ligne loop
+  DBMS_OUTPUT.PUT_LINE(t_comcli(i).nom_client ||' a passé : '|| t_comcli(i).nombre_com);
+ end loop;
+ 
+ end;
+ /

@@ -1,0 +1,1325 @@
+
+<!-- saved from url=(0050)http://didier.deleglise.free.fr/sql/oper_fonct.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<title>SQL Oracle : Opérateurs et fonctions</title>
+<style type="text/css">
+<!--
+h2 {  font-family: Arial, Helvetica, sans-serif; font-size: 12pt; font-style: normal; line-height: normal; font-weight: bold; color: #E7E3E7; background-color: #336699}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF">
+<b><font face="Arial"> 
+<h2>SQL Oracle : Opérateurs</h2>
+<p><font size="2">Les opérateurs arithmétiques</font></p>
+</font></b><b><font face="Arial" size="2"></font></b> 
+<table border="" cellspacing="1" cellpadding="4" width="533">
+<tbody><tr><td width="15%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">()</font></p></td>
+<td width="85%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">Permet d'évaluer en priorité les opérateurs entre parenthèses</font></p></td>
+</tr>
+<tr><td width="15%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">-</font></p></td>
+<td width="85%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">Signe négativement une expression numérique</font></p></td>
+</tr>
+<tr><td width="15%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">+-*/</font></p></td>
+<td width="85%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">Addition, soustraction, multiplication, division</font></p></td>
+</tr>
+</tbody></table>
+
+<font face="Arial" size="2"><br>
+<b>
+<p>Les opérateurs chaînes de caractères</p>
+</b></font>
+<table border="" cellspacing="1" cellpadding="4" width="533">
+<tbody><tr><td width="15%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">||</font></p></td>
+<td width="85%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">concaténation de chaînes de caractères</font></p></td>
+</tr>
+</tbody></table>
+
+<br>
+<b><font face="Arial" size="2"><p>Les opérateurs divers</p>
+</font></b>
+<table border="" cellspacing="1" cellpadding="4" width="533">
+<tbody><tr><td width="22%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">(+)</font></p></td>
+<td width="78%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">Utilisé en jointure externe. La colonne suffixée de cet opérateur est une clé étrangère.</font></p></td>
+</tr>
+<tr><td width="22%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">count(*)</font></p></td>
+<td width="78%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">Nombre d'enregistrements retournés par la sélection.</font></p></td>
+</tr>
+<tr><td width="22%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">count(expr)</font></p></td>
+<td width="78%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">Nombre d'enregistrements retournés par la sélection, pour lesquels expr n'a pas une valeur NULL.</font></p></td>
+</tr>
+<tr><td width="22%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">distinct</font></p></td>
+<td width="78%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">Elimine les doublons de l'expression suivant distinct.</font></p></td>
+</tr>
+<tr><td width="22%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">prior</font></p></td>
+<td width="78%" valign="TOP">
+<font face="Arial" size="2"></font><p><font face="Arial" size="2">Définit la relation hiérarchique dans une interrogation arborescente. La partie droite de l'égalité indique l'enfant, la partie gauche le parent.</font></p></td>
+</tr>
+</tbody></table>
+
+<p>&nbsp;</p>
+<p><br>
+  <b><font face="Arial" size="2"> </font></b></p>
+<b><font face="Arial" size="2"><h2>Les fonctions numériques</h2>
+</font></b><font face="Arial" size="2">
+<p>m et n représentent des données de type numérique ou des expressions ayant une donnée résultante de type numérique.</p>
+</font>
+<table border="" cellspacing="1" cellpadding="4" width="533">
+  <tbody><tr> 
+    <td width="22%" valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">ABS(n)
+      </font></p></td>
+    <td width="78%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Valeur absolue<br>
+        ABS(-32.5)=32.5
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">CEIL(n)
+      </font></p></td>
+    <td width="78%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Plus petit entier relatif égal ou supérieur<br>
+        CEIL(31.5)=32 CEIL(-31.5)=-31
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">FLOOR(n)
+      </font></p></td>
+    <td width="78%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Plus grand entier relatif inférieur ou égal<br>
+        FLOOR(31.5)=31 FLOOR(-31.5)=-32
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">MOD(m,n)
+      </font></p></td>
+    <td width="78%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Reste de la division de m par n<br>
+        MOD(35,4)=3
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">POWER(m,n)
+      </font></p></td>
+    <td width="78%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">m puissance n<br>
+        POWER(4,3)=84
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">SIGN(n)
+      </font></p></td>
+    <td width="78%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Indique le signe de n<br>
+        SIGN(0)=0 SIGN(-5)=-1 SIGN(5)=1
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">SQRT(n)
+      </font></p></td>
+    <td width="78%" valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Racine carrée de n<br>
+        SQRT(9)=3 SQRT(-9)=NULL
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">ROUND(n)
+      </font></p></td>
+    <td width="78%" valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Arrondi de n à 100 (Partie entière)<br>
+        ROUND(15.3)=15 ROUND(15.5)=16
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">ROUND(n,m)
+      </font></p></td>
+    <td width="78%" valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Arrondi de n à 10-m<br>
+        ROUND(1500,-3)=2000 ROUND(1499,-3)=1000<br>
+        ROUND(1.55,1)=1.6 ROUND(1.551,2)=1.55
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">TRUNC(n)
+      </font></p></td>
+    <td width="78%" valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">n tronqué à 100 (Partie entière)<br>
+        TRUNC(15.3)=15 </font></p></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">TRUNC(n,m)
+      </font></p></td>
+    <td width="78%" valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">n tronqué à 10-m<br>
+        TRUNC(1500,-3)=1000 TRUNC(1499,-3)=1000<br>
+        TRUNC(1.55,1)=1.5 TRUNC(1.551,2)=1.5</font></p></td>
+  </tr>
+</tbody></table>
+
+<br>
+<b><font face="Arial"> 
+<h2><font size="2">Les fonctions de groupe</font></h2>
+</font></b> 
+<table border="" cellspacing="1" cellpadding="4" width="533">
+  <tbody><tr> 
+    <td width="26%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">AVG(expr)
+      </font></p></td>
+    <td width="74%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Moyenne de toutes les valeurs de expr
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="26%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">COUNT(*)
+      </font></p></td>
+    <td width="74%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Nombre d'enregistrements retournés par la sélection.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="26%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">COUNT(expr)
+      </font></p></td>
+    <td width="74%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Nombre d'enregistrements retournés par la sélection, pour 
+        lesquels expr n'a pas une valeur NULL.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="26%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">MAX(expr)
+      </font></p></td>
+
+    <td width="74%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Valeur maximale de toutes les valeurs de expr
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="26%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">MIN(expr)
+      </font></p></td>
+    <td width="74%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Valeur minimale de toutes les valeurs de expr
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="26%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">STDDEV(expr)
+      </font></p></td>
+    <td width="74%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Ecart type de toutes les valeurs de expr
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="26%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">SUM(expr)
+      </font></p></td>
+    <td width="74%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Somme de toutes les valeurs de expr
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="26%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">VARIANCE(expr)
+      </font></p></td>
+    <td width="74%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Variance de toutes les valeurs de expr
+      </font></p></td>
+  </tr>
+</tbody></table>
+
+<br>
+<b><font face="Arial" size="4"> 
+<h2><font size="2">Les fonctions chaîne de caractères</font></h2>
+</font><font face="Arial" size="2">
+<p>Les fonctions retournant une valeur numérique.</p>
+</font></b> 
+<table border="" cellspacing="1" cellpadding="4" width="686">
+  <tbody><tr> 
+    <td width="26%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">ASCII(char) 
+      </font></p></td>
+    <td width="74%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Donne la valeur ASCII ou EBCDIC du premier caractère de la chaîne 
+        de caractères char.<br>
+        ASCII('(parenthèses)')=40 ASCII(' ')=32 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="26%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">INSTR(char, char1[,n[,m]]) 
+      </font></p></td>
+    <td width="74%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Recherche dans la chaîne de caractères char la position 
+        de la chaîne de caractères char1. Si n est précisé, 
+        la recherche se fait à partir du rang n. Si m est précisé, 
+        la recherche donne la position de la m-ième occurence de char2 
+        dans char1. Si m est précisé, il est obligatoire de préciser 
+        n. INSTR('Contentement','t',1,5)=0<br>
+        INSTR('Détermination','i',8)=11 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="26%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">LENGTH(char) 
+      </font></p></td>
+    <td width="74%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Donne la longueur de la chaîne de caractères char.<br>
+        LENGTH('Intégrité')=9 
+      </font></p></td>
+  </tr>
+</tbody></table>
+
+<br>
+<b><font face="Arial" size="2"><p>Les fonctions retournant une valeur alphanumérique.</p>
+</font></b>
+
+<table border="" cellspacing="1" cellpadding="4" width="636">
+  <tbody><tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">CHR(n) 
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Caractère ayant la valeur ASCII ou EBCDIC de n<br>
+        CHR(65) = 'A' CHR(97)='a' CHR(40)='( 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">INITCAP(char) 
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">La première lettre de chaque mot de la chaîne de caractères 
+        est mise en majuscule, toutes les autres lettre sont mises en minuscules. 
+        INITCAP('mAdamE de sTaEl')='Madame De Stael' 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">LOWER(char) 
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Toutes les lettres sont mises en minuscules LOWER('ConFiAnce')='confiance' 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">UPPER(char) 
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Toutes les lettres sont mises en majuscules UPPER('ConFiAnce')='CONFIANCE' 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">LPAD(char1,n,[char2]) 
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Fait précéder la chaîne de caractères char1 
+        de la chaîne de caractères char2 (espace si char2 non spécifié) 
+        jusqu'à la longueur n. Si n est inférieur à la longueur 
+        de char1, tronque char1 à la longueur n.<br>
+        LPAD('Juin', 9,'=')= '=====Juin' LPAD('Juin',2,'=')='Ju' 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP" height="80"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">RPAD(char1,n,[char2]) 
+      </font></p></td>
+    <td width="71%" valign="TOP" height="80"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Fait suivre la chaîne de caractères char1 du caractère 
+        char2 (espace si char2 non spécifié) jusqu'à la longueur 
+        n. Si n est inférieur à la longueur de char1, tronque char 
+        à la longueur n.<br>
+        RPAD('Juin', 9,'=')= 'Juin=====' RPAD('Juin',2,'=')='Ju' 
+      </font> </p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">LTRIM(char1[,char2]) 
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Supprime du début de la chaîne de caractères char1 
+        les caractères présents dans la chaîne de caractère 
+        char2 jusqu'à ce que plus aucun caractère de char2 ne débute 
+        char1.<br>
+        LTRIM('=======Juin','=')= 'Juin' TRIM('Juin','Ju')='in'<br>
+        LTRIM('JJuuJuJin','Ju')='ain' 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">RTRIM(char1[,char2]) 
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Supprime de la fin de la chaîne de caractères char1 les 
+        caractères présents dans la chaîne de caractère 
+        char2 jusqu'à ce que plus aucun caractère de char2 ne termine 
+        char1.<br>
+        RTRIM('Juin=======','=')= 'Juin' TRIM('Juin','in')='Ju' RTRIM('Juiniinnnii','in')='Ju' 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">REPLACE(char, char1, char2) 
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Remplace dans la chaîne de caractères char la chaîne 
+        de caractères char1 par la chaîne de caractères char2.<br>
+        REPLACE('1.235.256,45','.',' ')='1 235 256,45' REPLACE('ABBABAAAB','AB','C')=''CBCAAC' 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">SUBSTR(char1,n[,m]) 
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Extrait de la chaîne de caractères char1, les caractères 
+        situés à partir du rang n jusqu'à la longueur m, 
+        ou jusqu'à la fin si m non spécifié. SUBSTR('Respect',4)='pect' 
+        SUBSTR('Respect',4,2)='pe' 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">TRANSLATE(char, char1 , char2) 
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Remplace dans la chaîne de caractères char les caractères 
+        présents dans la chaîne de caractère char1 par les 
+        caractères de même rang présents dans la chaîne 
+        de caractères char2.<br>
+        REPLACE('1.235.256,45','.,',' ,')='1 235 256.45' REPLACE('Satisfaction','sa','*')='Sti*fction' 
+      </font></p></td>
+  </tr>
+</tbody></table>
+
+<br>
+<b> 
+<h2><font face="Arial" size="2">Les fonctions date</font></h2>
+<font face="Arial" size="2">
+<p>Fonctions</p>
+</font></b> 
+<table border="" cellspacing="1" cellpadding="4" width="676">
+  <tbody><tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">ADD_MONTHS(date, n)
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Ajout de n mois à la date.<br>
+        ADD_MONTHS('01-DEC-93')='01-JAN-94'
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">LAST_DAY(date)
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Indique le dernier jour du mois de date<br>
+        LAST_DAY('15-FEV-93')='28-FEV-93'
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">MONTHS_BETWEEN<br>
+        (date1, date2)
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Nombre de mois entre date1 et date2. La partie décimale est obtenue 
+        en divisant le nombre de jours par 31.<br>
+        MONTHS_BETWEEN('26-JUN-90','25-DEC-93')=40,967742 MONTHS_BETWEEN('26-JUN-90','26-DEC-89')=-6 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">NEXT_DAY(d,j)
+      </font></p></td>
+    <td width="71%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Date postérieure à la date d du jour j.<br>
+        NEXT_DAY('12-DEC-93', 'MERCREDI')='15-DEC-93'
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP" height="107"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">ROUND(date[,format])
+      </font></p></td>
+    <td width="71%" valign="TOP" height="107"> <font face="Arial" size="2"> 
+      <p>Arrondi de la date au format spécifié. Si format non spécifié, 
+        arrondi au jour le plus proche.<br>
+        ROUND(TO_DATE('30-JUN-93'),'Y')='01-JAN-93<br>
+        ROUND(TO_DATE('01-JUL-93'),'Y')='01-JAN-94'<br>
+        ROUND( TO_DATE('15-12-93 12:00:00','DD-MM-YY HH:MI:SS')) = '16-DEC-93'<br>
+        ROUND(TO_DATE('15-12-93 11:59:59','DD-MM-YY HH:MI:SS')) ='15-DEC-93'</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="29%" valign="TOP" height="66"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">TRUNC(date[,format])
+      </font></p></td>
+    <td width="71%" valign="TOP" height="66"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Date tronquée au format spécifié. Si format non 
+        spécifié, arrondi au jour.<br>
+        TRUNC(TO_DATE('01-JUL-93'),'Y')='01-JAN-93'<br>
+        TRUNC( TO_DATE('15-12-93 12:00:00','DD-MM-YY HH:MI:SS')) ='15-DEC-93'<br>
+        TRUNC(TO_DATE('15-12-93'),'MM')='01-DEC-93'
+      </font></p></td>
+  </tr>
+</tbody></table>
+
+<br>
+<b><font face="Arial" size="2"><p>Formats des fonctions TRUNC et ROUND</p></font></b>
+<table border="" cellspacing="1" cellpadding="4" width="552">
+  <tbody><tr> 
+    <td width="35%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">CC, SCC
+      </font></p></td>
+    <td width="65%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Arrondi ou tronqué au siècle.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="35%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">YYYY, SYYYY, YEAR, SYEAR, YYY, YY, Y
+      </font></p></td>
+    <td width="65%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Arrondi ou tronqué à l'année. Changement d'arrondi 
+        à partir du 1er juillet. 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="35%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Q 
+      </font></p></td>
+    <td width="65%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Arrondi ou tronqué au trimestre. Changement d'arrondi à 
+        partir du 16 du 2ème mois.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="35%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">MONTH, MON, MM
+      </font></p></td>
+    <td width="65%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Arrondi ou tronqué au mois. Changement d'arrondi à partir 
+        du 16ème jour. 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="35%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">WW
+      </font></p></td>
+    <td width="65%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Arrondi ou tronqué à la semaine dans l'année.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="35%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">W
+      </font></p></td>
+    <td width="65%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Arrondi ou tronqué à la semaine dans le mois.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="35%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">DDD, DD, J
+      </font></p></td>
+    <td width="65%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Arrondi ou tronqué au jour (Valeur par défaut).
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="35%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">DAY, DY, D
+      </font></p></td>
+    <td width="65%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Arrondi ou tronqué au dimanche le plus proche.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="35%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">HH, HH12, HH24
+      </font></p></td>
+    <td width="65%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Arrondi ou tronqué à l'heure.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="35%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">MI
+      </font></p></td>
+    <td width="65%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Arrondi ou tronqué à la minute.
+      </font></p></td>
+  </tr>
+</tbody></table>
+
+<br>
+<b><font face="Arial">
+<h2>Fonctions de conversion</h2>
+</font><font face="Arial" size="2">
+<p>Fonctions</p>
+</font></b> 
+<table border="" cellspacing="1" cellpadding="4" width="552">
+  <tbody><tr> 
+    <td width="37%" valign="TOP" height="31"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">TO_NUMBER(chaîne)
+      </font></p></td>
+    <td width="63%" valign="TOP" height="31"> <font face="Arial" size="2"> 
+      <p>Conversion d'une chaîne en nombre.TO_NUMBER('025')=25</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="37%" valign="TOP" height="59"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">TO_CHAR(expr[,format])
+      </font></p></td>
+    <td width="63%" valign="TOP" height="59"> <font face="Arial" size="2"> 
+      <p>Conversion d'une expression de type date ou numérique en chaînes 
+        de caractères.TO_CHAR(SYSDATE,'DD-MM-YY')= '01-01-94'</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="37%" valign="TOP" height="50"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">TO_DATE(chaîne[, format])
+      </font></p></td>
+    <td width="63%" valign="TOP" height="50"> <font face="Arial" size="2"> 
+      <p>Conversion d'une chaîne de caractères en date.TO_DATE('01-01-94', 
+        'WW')=1</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="37%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">CHARTOROWID(chaîne)
+      </font></p></td>
+    <td width="63%" valign="TOP"> <font face="Arial" size="2"> 
+      <p>Convertit une chaîne de caractères en rowid.CHARTOROWID('0000000E.0002.0001')=0000000E.0002.0001</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="37%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">ROWIDTOCHAR(rowid)
+      </font></p></td>
+    <td width="63%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Convertit une valeur de type rowid en chaîne de caractères.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="37%" valign="TOP" height="92"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">CONVERT(chaîne,<br>
+        [, dest_jeu] [, srce_jeu])
+      </font></p></td>
+    <td width="63%" valign="TOP" height="92"> <font face="Arial" size="2"> 
+      <p>Convertit une chaîne de caractères, du jeu de caractères 
+        srce_jeu dans lequel elle est stockée dans la base vers le jeu 
+        de caractères dest_jeu.Par défaut le jeu de caractères 
+        dest_jeu est 'US7ASCII'. Par défaut le jeu de caractères 
+        srce_jeu est celui de l'argument &lt;char_set&gt; du paramètre 
+        LANGAGE du INIT.ORA courant.</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="37%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">HEXTORAW(chaîne)
+      </font></p></td>
+    <td width="63%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Convertit une chaîne de caractères contenant une valeur 
+        hexadécimale en valeur binaire.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="37%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">RAWTOHEX(raw)
+      </font></p></td>
+    <td width="63%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Convertit une valeur binaire en nombre hexadécimal.
+      </font></p></td>
+  </tr>
+</tbody></table>
+
+<br>
+<b><font face="Arial" size="2">
+<p>Résumé des conversions classiques par type :</p></font></b>
+<table border="" cellspacing="1" cellpadding="4" width="496">
+  <tbody><tr> 
+    <td width="31%" valign="TOP" bgcolor="#ffffff" height="43"> <font face="Arial" size="2"> 
+      <p> Type en entrée<br>
+        Type en sortie</p>
+      </font></td>
+    <td width="23%" valign="TOP" height="43"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">CHAR
+      </font></p></td>
+    <td width="23%" valign="TOP" height="43"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">DATE
+      </font></p></td>
+    <td width="23%" valign="TOP" height="43"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">NUMBER
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="31%" valign="TOP" height="24"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">CHAR
+      </font></p></td>
+    <td width="23%" valign="TOP" height="24">&nbsp;</td>
+    <td width="23%" valign="TOP" height="24"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">TO_DATE
+      </font></p></td>
+    <td width="23%" valign="TOP" height="24"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">TO_NUMBER
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="31%" valign="TOP" height="27"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">DATE
+      </font></p></td>
+    <td width="23%" valign="TOP" height="27"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">TO_CHAR
+      </font></p></td>
+    <td width="23%" valign="TOP" height="27">&nbsp;</td>
+    <td width="23%" valign="TOP" height="27"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Invalide
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="31%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">NUMBER
+      </font></p></td>
+    <td width="23%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">TO_CHAR
+      </font></p></td>
+    <td width="23%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">TO_DATE
+      </font></p></td>
+    <td width="23%" valign="TOP">&nbsp;</td>
+  </tr>
+</tbody></table>
+
+<br>
+<b><font face="Arial" size="2"><p>Formats numériques</p></font></b>
+<table border="" cellspacing="1" cellpadding="4" width="647">
+  <tbody><tr> 
+    <td width="31%" valign="TOP" height="36"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">9
+      </font></p></td>
+    <td width="69%" valign="TOP" height="36"> <font face="Arial" size="2"> 
+      <p>Le nombre de 9 détermine la longueur d'affichage.<br>
+        9999 123</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="31%" valign="TOP" height="43"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">0
+      </font></p></td>
+    <td width="69%" valign="TOP" height="43"> <font face="Arial" size="2"> 
+      <p>Placé devant des 9, indique que les zéros sont affichés.<br>
+        09999 0123</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="31%" valign="TOP" height="42"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">B
+      </font></p></td>
+    <td width="69%" valign="TOP" height="42"> <font face="Arial" size="2"> 
+      <p>Placé devant des 9, indique que les zéros sont affichés 
+        par des espaces.<br>
+        B9999 123</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="31%" valign="TOP" height="41"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">$
+      </font></p></td>
+    <td width="69%" valign="TOP" height="41"> <font face="Arial" size="2"> 
+      <p>Placé devant des 9, indique que le signe $ sera affiché 
+        devant le nombre.<br>
+        $9999 $123</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="31%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">MI
+      </font></p></td>
+    <td width="69%" valign="TOP"> <font face="Arial" size="2"> 
+      <p>Placé après les 9, affiche un - après une valeur 
+        négative.<br>
+        9999MI 123-</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="31%" valign="TOP" height="35"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">PR
+      </font></p></td>
+    <td width="69%" valign="TOP" height="35"> <font face="Arial" size="2"> 
+      <p>Placé après les 9, affiche une valeur négative entre 
+        &lt;&gt;.<br>
+        9999PR &lt;123&gt;</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="31%" valign="TOP" height="38"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">,
+      </font></p></td>
+    <td width="69%" valign="TOP" height="38"> <font face="Arial" size="2"> 
+      <p>Affiche une virgule à la position où elle se trouve dans 
+        la série de 9.<br>
+        999,99 1,234</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="31%" valign="TOP" height="38"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">.
+      </font></p></td>
+    <td width="69%" valign="TOP" height="38"> <font face="Arial" size="2"> 
+      <p>Affiche un point à la position où il se trouve dans la 
+        série de 9.999.99 123.00</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="31%" valign="TOP" height="39"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">V
+      </font></p></td>
+    <td width="69%" valign="TOP" height="39"> <font face="Arial" size="2"> 
+      <p>Multiplie la valeur par 10n où n est le nombre de 9 suivant V.<br>
+        999V99 12300</p>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="31%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">E
+      </font></p></td>
+    <td width="69%" valign="TOP"> <font face="Arial" size="2"> 
+      <p>Affiche le nombre en notation scientifique.<br>
+        9.999EEEE 1.23E2</p>
+      </font></td>
+  </tr>
+</tbody></table>
+
+<font face="Arial" size="2"><p>&nbsp;</p>
+<b><p>Formats date</p></b></font>
+<table border="" cellspacing="1" cellpadding="4" width="622">
+  <tbody><tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">CC ou SCC
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Indique le siècle. S fait précéder les dates situées 
+        Avant JC de -.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">YYYY ou SYYYY
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Année sur 4 chiffres. S fait précéder les dates 
+        situées Avant JC de -.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">YYY ou YY ou Y
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Les trois, deux ou dernier chiffres de l'année.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Y,YYY
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Millénaire suivi d'une virgule.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">YEAR ou SYEAR
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Année en toutes lettres. S fait précéder les dates 
+        situées Avant JC de -.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">BC ou AD
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Affiche la mention BC ou AD après la date.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">B.C. ou A.D.
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Affiche la mention B.C. ou A.D. après la date.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Q
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Affiche le trimestre (1 pour Janvier-Mars, ...).
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">MM
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Affiche le mois sous forme de deux chiffres (01 à 12).
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">MONTH
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Nom du mois en toutes lettres sur 9 caractères (donc complété 
+        éventuellement par des blancs) en majuscules, capitales ou minuscules.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">MON
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Nom du mois en toutes lettres abrégé en trois lettres.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">WW
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Numéro de la semaine dans l'année (la semaine 1 commence 
+        le 1er jour de l'année et dure 7 jours).
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">W
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Numéro de la semaine dans le mois (la semaine 1 commence le 1er 
+        jour du mois et dure 7 jours).
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">DDD
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Rang du jour dans l'année (1 à 365 ou 366).
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">DD
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Rang du jour dans le mois (1 à 28, 29, 30 ou 31).
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">D
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Rang du jour dans la semaine (1 à 7).
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">DAY, Day, day
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Nom du jour en toutes lettres sur 9 caractères (donc complété 
+        éventuellement par des blancs) en majuscules, capitales ou minuscules.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">DY
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Nom du jour en toutes lettres abrégé en trois lettres.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">J
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Jour julien. Nombre de jours écoulés depuis le 1er janvier 
+        4712 BC.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">AM ou PM
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Suffixe la date de la mention AM (matin) ou PM (après-midi).
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">A.M. ou P.M.
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Suffixe la date de la mention A.M. (matin) ou P.M. (après-midi).
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">HH ou HH12
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Heure de 01 à 12.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">HH24
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Heure de 01 à 24.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">MI
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Minutes (01 à 60)
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">SS
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Secondes (01 à 60)
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">SSSSS
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Secondes écoulées depuis Minuit.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">/ . , -
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Ponctuations autorisées dans le résultat.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">"chaîne"
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Chaîne de caractères <i>chaîne</i> reproduite dans 
+        le résultat.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">fm
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Préfixe permettant de supprimer les blancs suffixants et les zéros 
+        préfixants. Fonctionne comme un switch : si présent un nombre 
+        pair de fois dans le format, active les suppressions à partir du 
+        rang impair et les désactive à partir du rang pair.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">TH
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Suffixe suffixant de TH (DDTH:04TH).
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">SP
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Suffixe demandant l'affichage en toutes lettres(DDSP:FOUR).
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td width="28%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">SPTH ou THSP
+      </font></p></td>
+    <td width="72%" valign="TOP"> <font face="Arial" size="2">
+      </font><p><font face="Arial" size="2">Suffixe demandant l'affichage en toutes lettres suffixé de TH.
+      </font></p></td>
+  </tr>
+</tbody></table>
+
+<p>&nbsp;</p>
+<p><br>
+  <b><font face="Arial"> </font></b></p>
+<b><font face="Arial"><h2><font size="2">Fonctions diverses</font></h2>
+</font></b> 
+<table border="" cellspacing="1" cellpadding="4" width="595">
+  <tbody><tr> 
+    <td valign="TOP" colspan="2"><font face="Arial, Helvetica, sans-serif" size="2">BFILENAME</font></td>
+    <td width="63%" valign="TOP"><font size="2">&nbsp;</font></td>
+  </tr>
+  <tr> 
+    <td valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">DECODE<a name="decode"></a><br>
+        ( expr, val1, rés1 [, val2, rés2] [...,...] [, défaut] 
+        )
+      </font></p></td>
+    <td width="63%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Compare la valeur de l'expression <i>expr</i> à <i>valeuri</i> 
+        et retourne le résultat <i>résultati</i> en cas d'égalité. 
+        S'arrête dès l'égalité ou si toutes les valeurs 
+        ont été balayées. Si l'égalité ne s'est 
+        pas produite, retourne la valeur défaut si celle-ci est indiquée, 
+        sinon retourne la valeur NULL.
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">DUMP<br>
+        ( expr, [,format [n [,l]]] )
+      </font></p></td>
+    <td width="63%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Affiche au format interne désigné une expression <i>expr</i>, 
+        à partir de la position <i>n</i> dans l'expression sur une longueur 
+        <i>l</i>. Affiche le résultat en entier si n et l non spécifiés. 
+        Les formats possibles sont :<br>
+        8 (octal), 10 (décimal), 16 (hexadécimal) et 17 (caractères).
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td valign="TOP" colspan="2"><font face="Arial, Helvetica, sans-serif" size="2">EMPTY_BLOB 
+      / <br>
+      EMPTY_CLOB <br>
+      </font></td>
+    <td width="63%" valign="TOP"><font face="Arial, Helvetica, sans-serif" size="2">initialise 
+      à vide, une variable pointeur de LOB</font></td>
+  </tr>
+  <tr> 
+    <td valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">GREATEST(liste) 
+      </font></p></td>
+    <td width="63%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Plus grande valeur de la liste 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td valign="TOP" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">LEAST(liste) 
+      </font></p></td>
+    <td width="63%" valign="TOP"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Plus petite valeur de la liste 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td valign="TOP" height="52" colspan="2"><font face="Arial, Helvetica, sans-serif" size="2">NLS_CHARSET_DECL_LEN<br>
+      (lg_colonne, id_char_set)<br>
+      </font></td>
+    <td width="63%" valign="TOP" height="52"><font face="Arial, Helvetica, sans-serif" size="2">renvoie 
+      la longueur déclarée d'un NCHAR</font></td>
+  </tr>
+  <tr> 
+    <td valign="TOP" height="31" colspan="2"><font face="Arial, Helvetica, sans-serif" size="2">NLS_CHARSET_ID 
+      (nom)</font></td>
+    <td width="63%" valign="TOP" height="31"><font face="Arial, Helvetica, sans-serif" size="2">renvoie 
+      le no du character set en parametre </font></td>
+  </tr>
+  <tr> 
+    <td valign="TOP" height="35" colspan="2"><font face="Arial, Helvetica, sans-serif" size="2">NLS_CHARSET_NAME 
+      (n)</font></td>
+    <td width="63%" valign="TOP" height="35"><font face="Arial, Helvetica, sans-serif" size="2">renvoie 
+      le nom du character set de no n</font></td>
+  </tr>
+  <tr> 
+    <td valign="TOP" height="52" colspan="2"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2"><a name="nvl"></a>NVL<br>
+        ( expr1, expr2 ) 
+      </font></p></td>
+    <td width="63%" valign="TOP" height="52"> <font face="Arial" size="2"> 
+      </font><p><font face="Arial" size="2">Retourne la valeur de <i>expr2</i> si <i>expr1</i> est de valeur NULL, 
+        retourne la valeur de <i>expr1</i> sinon. <i>expr2</i> et<i> expr1</i> 
+        doivent être de même type 
+      </font></p></td>
+  </tr>
+  <tr> 
+    <td valign="TOP" colspan="2"> 
+      <p><font face="Arial" size="2">UID </font> 
+    </p></td>
+    <td width="63%" valign="TOP"> 
+      <p><font face="Arial" size="2">Identificateur de l'utilisateur courant </font> 
+    </p></td>
+  </tr>
+  <tr> 
+    <td valign="TOP" colspan="2"> 
+      <p><font face="Arial" size="2">USER </font> 
+    </p></td>
+    <td width="63%" valign="TOP"> 
+      <p><font face="Arial" size="2">Utilisateur courant </font> 
+    </p></td>
+  </tr>
+  <tr> 
+    <td width="15%" valign="TOP" rowspan="9"><font face="Arial" size="2">USERENV 
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      </font></td>
+    <td width="22%" valign="TOP" height="27">(</td>
+    <td width="63%" valign="TOP" height="27"><font size="2">&nbsp;</font></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP" height="27"><font face="Arial" size="2">'OSDBA'</font></td>
+    <td width="63%" valign="TOP" height="27"><font face="Arial, Helvetica, sans-serif" size="2"> 
+      true si le user a OSDBA rôle , false sinon </font></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP"><font face="Arial" size="2">'LANGAGE'</font></td>
+    <td width="63%" valign="TOP"><font face="Arial, Helvetica, sans-serif" size="2">renvoie 
+      le langage et le character set utilisé dans la session</font></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP"><font face="Arial" size="2">'TERMINAL'</font></td>
+    <td width="63%" valign="TOP"><font face="Arial, Helvetica, sans-serif" size="2">renvoie 
+      l'identificateur de terminal (OS) de votre session</font></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP"><font face="Arial" size="2">'SESSIONID' </font></td>
+    <td width="63%" valign="TOP"><font face="Arial, Helvetica, sans-serif" size="2">no 
+      de la session AUDIT (si AUDIT TRAIL est TRUE)</font></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP"><font face="Arial" size="2">'ENTRYID' </font></td>
+    <td width="63%" valign="TOP"><font face="Arial, Helvetica, sans-serif" size="2">no 
+      d'entree dans la session d'Audit</font></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP"><font face="Arial" size="2">'LANG' </font></td>
+    <td width="63%" valign="TOP"><font face="Arial, Helvetica, sans-serif" size="2">abréviation 
+      ISO du 'langage' utilisé</font></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP"><font face="Arial" size="2">'INSTANCE'</font></td>
+    <td width="63%" valign="TOP"><font face="Arial, Helvetica, sans-serif" size="2">no 
+      d'identication de l'instance courante</font></td>
+  </tr>
+  <tr> 
+    <td width="22%" valign="TOP">)</td>
+    <td width="63%" valign="TOP"><font size="2">&nbsp;</font></td>
+  </tr>
+  <tr> 
+    <td valign="TOP" colspan="2"><font face="Arial" size="2">VSIZE (expr)<br>
+      </font></td>
+    <td width="63%" valign="TOP"><font face="Arial, Helvetica, sans-serif" size="2">renvoie 
+      la taille physique (en bytes) de la donnée</font></td>
+  </tr>
+</tbody></table>
+
+<p><font face="Arial" size="2"></font></p>
+  
+<hr>
+<font size="2" face="Arial, Helvetica, sans-serif">(c) 2002- 2006 Didier Deléglise</font> 
+<hr>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+
+<table border="0" height="69" align="center">
+  <tbody><tr> 
+    <td width="130" height="65"> <p align="center"><font face="Arial, Helvetica, sans-serif" size="1"><img src="./SQL Oracle _ Opérateurs et fonctions_files/calendrier.jpg" width="32" height="32"><br>
+        modifié<br>
+        le 20/11/2006</font></p></td>
+    <td width="130" height="65"> <p align="center"><font face="Arial, Helvetica, sans-serif" size="1"> 
+        <a href="http://didier.deleglise.free.fr/sql/oper_fonct.htm" onclick="MM_openBrWindow(&#39;/ecris.htm&#39;,&#39;ecris&#39;,&#39;toolbar=yes,scrollbars=yes,resizable=yes,width=600,height=400&#39;)"> 
+        <img src="./SQL Oracle _ Opérateurs et fonctions_files/mail2.jpg" width="32" height="32" border="0" alt="Ecrire a DD"> 
+        </a><br>
+        <a href="http://didier.deleglise.free.fr/sql/oper_fonct.htm" onclick="MM_openBrWindow(&#39;/ecris.htm&#39;,&#39;ecris&#39;,&#39;toolbar=yes,scrollbars=yes,resizable=yes,width=600,height=400&#39;)"> 
+        ecris<br>
+        moi </a> </font></p></td>
+    <td width="130"> <div align="center"><font size="1" face="Arial, Helvetica, sans-serif"><a href="http://didier.deleglise.free.fr/w-agora/index.php?site=oracle"><img src="./SQL Oracle _ Opérateurs et fonctions_files/gens.jpg" width="32" height="32" border="0"><br>
+        les forums techniques Oracle</a></font></div></td>
+    <td width="130"><div align="center"><a href="http://universite-digitale.com/wordpress/"><img src="./SQL Oracle _ Opérateurs et fonctions_files/blog.png" width="32" height="32" border="0"></a><br>
+        <a href="http://universite-digitale.com/wordpress/"><font size="1" face="Arial, Helvetica, sans-serif">mon 
+        BLOG Oracle,<br>
+        en Francais</font></a></div></td>
+    <td width="130" height="65"> <div align="center"><font face="Arial, Helvetica, sans-serif" size="1"><a href="http://dd.estsurinternet.com/"><img src="./SQL Oracle _ Opérateurs et fonctions_files/dd_micro.gif" width="27" height="35" alt="connaitre DD" border="0"><br>
+        l'autre vie <br>
+        de DD</a></font></div></td>
+    <td width="130"><div align="center"><a href="http://didier.deleglise.free.fr/cv_didier_deleglise.doc"><img src="./SQL Oracle _ Opérateurs et fonctions_files/logo_msword.gif" width="39" height="41" border="0"></a><br>
+        <font size="1" face="Arial, Helvetica, sans-serif"><a href="http://didier.deleglise.free.fr/cv_didier_deleglise.doc">mon 
+        CV</a></font></div></td>
+    <td width="130"> <div align="center"><font size="1" face="Arial, Helvetica, sans-serif"><a href="http://didier.deleglise.free.fr/w-agora/index.php?bn=oracle_trucs"><img src="./SQL Oracle _ Opérateurs et fonctions_files/ico_lapin.jpg" width="32" height="32" border="0"></a><br>
+        <a href="http://didier.deleglise.free.fr/w-agora/index.php?bn=oracle_trucs">trucs 
+        <br>
+        et astuces</a></font></div></td>
+    <td width="130"> <div align="center"><font size="1" face="Arial, Helvetica, sans-serif"><a href="http://didier.deleglise.free.fr/jobs.php"><img src="./SQL Oracle _ Opérateurs et fonctions_files/ico_dollar.jpg" width="32" height="32" border="0"></a><br>
+        <a href="http://didier.deleglise.free.fr/jobs.php">JOBs Oracle<br>
+        du jour</a></font></div></td>
+    <td width="130" height="65"> <div align="center"><font face="Arial, Helvetica, sans-serif" size="1"><a href="http://didier.deleglise.free.fr/"><img src="./SQL Oracle _ Opérateurs et fonctions_files/fleche_haut.gif" width="30" height="30" alt="Homepage &quot;Tout sur Oracle&quot;" border="0"></a><br>
+        <a href="http://didier.deleglise.free.fr/">Mon site : <br>
+        Tout sur Oracle (et le web)</a></font></div></td>
+    <td width="130" height="65"> <div align="center"><font face="Arial, Helvetica, sans-serif" size="1"><a href="http://didier.deleglise.free.fr/usage.htm"><img src="./SQL Oracle _ Opérateurs et fonctions_files/copyright.jpg" width="36" height="36" alt="Copyright (C) 2002" border="0"></a><br>
+        <a href="http://didier.deleglise.free.fr/usage.htm">Utilisation de ces documents</a></font></div></td>
+  </tr>
+</tbody></table>
+
+ 
+</body></html>

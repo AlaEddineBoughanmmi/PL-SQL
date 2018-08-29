@@ -1,0 +1,196 @@
+*****Activer affichage écran
+
+SET SERVEROUTPUT ON;
+
+*****Affichage résultat écran
+
+DBMS_OUTPUT.PUT_LINE('petit texte');
+
+
+*****faire une demande utilisateur pour la recherche
+
+select * from SALARIES where NOM_SAL like '&nom_salarié';
+
+
+*****Var substitution et liaison
+
+accept p_nb prompt 'Entrez chaine char'; -- p_nb var de substitution
+VARIABLE SALARIE VARCHAR2(25); -- var de liaison qui stock la variable de substitution dans sa mémoire
+-- conserve la valeur tant que la session plsql n'ets pas terminée
+
+begin
+
+  :SALARIE := '&p_nb';
+  DBMS_OUTPUT.PUT_LINE('petit texte : ' || :SALARIE );
+  
+end;
+
+*** exercice 3
+
+--SET SERVEROUTPUT ON;
+
+accept s_nbr1 prompt 'Entrez nbr 1';
+accept s_nbr2 prompt 'Entrez nbr 2';
+
+VARIABLE NBR1 number; 
+VARIABLE NBR2 number; 
+
+declare
+
+  resultat number;
+
+begin
+
+  :NBR1 := &s_nbr1;
+  :NBR2 := &s_nbr2;
+  
+  resultat := :NBR1*:NBR2;
+  
+  if resultat < 100 Then
+  
+   DBMS_OUTPUT.PUT_LINE('le resultat est : ' || resultat);
+   
+  else
+  
+    DBMS_OUTPUT.PUT_LINE('trop grand!');
+  
+  
+ end if;
+  
+end;
+/
+
+*****exercice 4
+
+--SET SERVEROUTPUT ON;
+accept s_nom prompt 'Entrez votre nom';
+accept s_nbr1 prompt 'Entrez nbr 1';
+accept s_nbr2 prompt 'Entrez nbr 2';
+
+VARIABLE NOM VARCHAR2(25);
+VARIABLE NBR1 number; 
+VARIABLE NBR2 number; 
+
+begin
+  begin
+    
+    :NOM := '&s_nom';
+    :NBR1 := &s_nbr1;
+    :NBR2 := &s_nbr2;
+    
+     DBMS_OUTPUT.PUT_LINE('Bonjour : ' || :NOM);
+     DBMS_OUTPUT.PUT_LINE('Vous avez entre les nombres : ' || :NBR1 || ' et ' || :NBR2);
+  
+  end;
+  
+  begin
+    
+    :NBR1 := &s_nbr1;
+    :NBR2 := &s_nbr2;
+    
+    if :NBR1 < 100 and :NBR2 <100 Then
+    
+      DBMS_OUTPUT.PUT_LINE('la somme des nombres est : ' || (:NBR1+:NBR2));
+    
+    elsif :NBR1 > 100 and :NBR2 >100 Then
+    
+      DBMS_OUTPUT.PUT_LINE('la difference des nombres est : ' || (:NBR1-:NBR2));
+    
+    else
+    
+      DBMS_OUTPUT.PUT_LINE('le produit des nombres est : ' || (:NBR1*:NBR2);
+    end if;
+  end;
+end;
+/
+
+
+*****exercice 6
+
+--SET SERVEROUTPUT ON;
+
+VARIABLE DAT VARCHAR2;
+
+declare
+  
+  bloc varchar2(25);
+  
+begin
+  :DAT := SYSDATE;
+  begin
+    
+      bloc := 'bloc 1';
+     DBMS_OUTPUT.PUT_LINE('nous sommes dans le : ' || bloc);
+     DBMS_OUTPUT.PUT_LINE('nous sommes le : ' || :DAT);
+  
+  end;
+  
+  begin
+      bloc := 'bloc 2';
+      DBMS_OUTPUT.PUT_LINE('nous sommes dans le : ' || bloc);
+      DBMS_OUTPUT.PUT_LINE('nous sommes le : ' || :DAT);
+  end;
+  
+  begin
+    bloc := 'bloc 3';
+    DBMS_OUTPUT.PUT_LINE('nous sommes dans le : ' || bloc);
+    DBMS_OUTPUT.PUT_LINE('nous sommes le : ' || :DAT);
+  end;
+end;
+/
+
+*****création variables avec contraintes
+
+--SET SERVEROUTPUT ON;
+
+declare
+
+SUBTYPE nbr is number(2,1);
+var1 nbr := 1.1;
+BEGIN
+  
+  DBMS_OUTPUT.PUT_LINE(var1);
+
+end;
+/
+
+***** structures
+
+--SET SERVEROUTPUT ON;
+
+declare
+
+  type article is record(code_art number, désignation varchar2(100));
+  mon_article article;
+
+BEGIN
+  mon_article.code_art := 100;
+  mon_article.désignation := 'chocolat';
+  
+ DBMS_OUTPUT.PUT_LINE(mon_article.code_art || ' : ' || mon_article.désignation);
+
+end;
+/
+
+*****structure
+
+--SET SERVEROUTPUT ON;
+
+declare
+
+  type adresse is record(rue varchar2(100), numero number, cp number, localite varchar2(100));
+  type clients is record(nom varchar2(100), addr adresse);
+  
+  cli1 clients;
+BEGIN
+  
+  cli1.addr.rue := 'aaaa';
+  cli1.addr.numero := 5;
+  cli1.addr.cp := 1111;
+  cli1.addr.localite := 'charleroi';
+  cli1.nom := 'toto';
+  
+ DBMS_OUTPUT.PUT_LINE(cli1.nom || ' : ' || cli1.addr.rue);
+
+end;
+/

@@ -1,0 +1,14 @@
+--Exercice 18
+--Afficher le nombre d’articles différents concernant chaque commande (numéro de commande et nom du client) si ce nombre est supérieur à 2
+SET SERVEROUTPUT ON;
+DECLARE
+type cmd_article is record(num_commande COMMANDES.NUMERO_CDE%type, nom_client CLIENTS.NOM%type, nbr_article number);
+type tableau_cmd is table of cmd_article index by binary_integer;
+tab_cmd tableau_cmd;
+BEGIN
+SELECT C.NUMERO_CDE, CL.NOM, count(*) BULK COLLECT into tab_cmd FROM ARTICLES A INNER JOIN LIGNES_COMMANDES LC ON A.REFERENCE_ART = LC.REFERENCE_ART INNER JOIN COMMANDES C ON LC.NUMERO_CDE = C.NUMERO_CDE INNER JOIN CLIENTS CL ON C.NUMERO_CLI = CL.NUMERO_CLI HAVING count(*)>2 GROUP BY C.NUMERO_CDE, CL.NOM ORDER BY 1 ASC;
+FOR x IN 1..tab_cmd.count LOOP
+		DBMS_OUTPUT.PUT_LINE('Le numéro de la commande : ' || tab_cmd(x).num_commande ||' ,le client est : ' || tab_cmd(x).nom_client || ' et le nombre d''article est de ' || tab_cmd(x).nbr_article);	
+	END LOOP;
+end;
+/

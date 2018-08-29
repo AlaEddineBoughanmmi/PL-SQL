@@ -1,0 +1,7 @@
+Identifiant SYSTEM
+login : sys
+mdp : SandraEmy79
+
+Identifiant ORACLE :
+login : ORA9 
+mdp : oracle

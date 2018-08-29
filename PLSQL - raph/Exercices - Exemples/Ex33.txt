@@ -1,0 +1,24 @@
+---set serveroutput on;
+declare
+ cursor ccur_croissant  is select cl.numero_cli,cl.nom, count(*) nb from commandes co
+ inner join clients cl on cl.numero_cli = co.numero_cli where  months_between (sysdate, date_cde)
+ <= 84
+ group by cl.numero_cli, cl.nom
+ order by 2 asc;
+ v_cde ccur_croissant%rowtype;
+ i number; 
+ 
+ begin 
+ open ccur_croissant;
+ for i in 1..3 loop
+ fetch ccur_croissant into v_cde;
+  if ccur_croissant%notfound
+  then exit;
+  end if;
+ DBMS_OUTPUT.PUT_LINE(v_cde.nom || '  '|| v_cde.nb );
+ end loop;
+ close ccur_croissant;
+ end;
+ /
+
+
